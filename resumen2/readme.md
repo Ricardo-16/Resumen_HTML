@@ -26,4 +26,4 @@
         Mosaic que quien la creo fue Marc antes de crear su fundación Mosaic Communications Corporation.
         El que creo el atributo "name" fue Tony Johnson, el tambien agrego la etiqueta "HREF"y tambien la etiqueta <a>
     Y asi es como tambien varias personas agregaron nuevas etriquetas y atributos pero el que destaco un poco fue Jim Davis el cual hizo qeu dejaran la etiqueta <img> de la siguiente manera.
-<img href="url" CONTENT-TYPE=audio/Basic>.
+<img href="url" CONTENT-TYPE=audio/Basic>
