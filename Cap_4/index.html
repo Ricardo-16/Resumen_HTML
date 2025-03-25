@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas en HTML5</title>
+    <style>
+        canvas {
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas width="300" height="225"></canvas>
+    <canvas width="300" height="225" style="border:1px dashed #000;"></canvas>
+    <canvas id="a" width="300" height="225"></canvas>
+    <canvas id="b" width="300" height="225"></canvas>
+    <canvas id="myCanvas" width="300" height="225"></canvas>
+
+    <button onclick="draw_b()">Click to draw on this canvas</button>
+    <img src="./Resumen_HTML/Cap_4/imagenes/Captura de pantalla 2025-03-25 101504.png" alt="">
+    <img src="./Resumen_HTML/Cap_4/imagenes/Captura de pantalla 2025-03-25 101408.png" alt="">
+    <script>
+        // Función para dibujar un rectángulo en el canvas "b"
+        function draw_b() {
+            var b_canvas = document.getElementById("b");
+            var b_context = b_canvas.getContext("2d");
+            b_context.fillStyle = "blue"; // Color azul
+            b_context.fillRect(50, 25, 150, 100); // Dibujar rectángulo
+        }
+
+        // Dibujar un círculo en el canvas "a"
+        var a_canvas = document.getElementById("a");
+        var context = a_canvas.getContext("2d");
+        
+        var x = 150, y = 100, radius = 50; // Coordenadas y radio del círculo
+        
+        context.beginPath();
+        context.arc(x, y, radius, 0, Math.PI * 2, false);
+        context.closePath();
+        context.strokeStyle = "#000";
+        context.stroke();
+
+        // Capturar clics en el canvas "myCanvas"
+        var canvas = document.getElementById("myCanvas");
+        canvas.addEventListener("click", function (e) {
+            var x = e.pageX - canvas.offsetLeft;
+            var y = e.pageY - canvas.offsetTop;
+            alert("Clic en: " + x + ", " + y);
+        });
+
+        // Obtener la posición del clic en el tablero de juego
+        function getCursorPosition(e) {
+            var x, y;
+            if (e.pageX !== undefined && e.pageY !== undefined) {
+                x = e.pageX;
+                y = e.pageY;
+            } else {
+                x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            }
+            x -= canvas.offsetLeft;
+            y -= canvas.offsetTop;
+            return { row: Math.floor(y / 50), column: Math.floor(x / 50) }; // Se ajusta al tamaño de celda 50x50
+        }
+
+        // Dibujar el tablero con líneas de cuadrícula
+        var gDrawingContext = canvas.getContext("2d");
+        var kPixelWidth = 300, kPixelHeight = 225, kPieceWidth = 50, kPieceHeight = 50;
+
+        function drawBoard() {
+            gDrawingContext.beginPath();
+            for (var x = 0; x <= kPixelWidth; x += kPieceWidth) {
+                gDrawingContext.moveTo(x, 0);
+                gDrawingContext.lineTo(x, kPixelHeight);
+            }
+            for (var y = 0; y <= kPixelHeight; y += kPieceHeight) {
+                gDrawingContext.moveTo(0, y);
+                gDrawingContext.lineTo(kPixelWidth, y);
+            }
+            gDrawingContext.strokeStyle = "#ccc";
+            gDrawingContext.stroke();
+        }
+        drawBoard();
+
+        // Función para dibujar una pieza
+        function drawPiece(p, selected) {
+            var x = p.column * kPieceWidth + kPieceWidth / 2;
+            var y = p.row * kPieceHeight + kPieceHeight / 2;
+            var radius = kPieceWidth / 2 - kPieceWidth / 10;
+
+            gDrawingContext.beginPath();
+            gDrawingContext.arc(x, y, radius, 0, Math.PI * 2, false);
+            gDrawingContext.closePath();
+            gDrawingContext.strokeStyle = "#000";
+            gDrawingContext.stroke();
+
+            if (selected) {
+                gDrawingContext.fillStyle = "#000";
+                gDrawingContext.fill();
+            }
+        }
+
+        // Limpiar y redibujar el tablero
+        function resetBoard() {
+            gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);
+            drawBoard();
+        }
+
+    </script>
+</body>
+</html>
