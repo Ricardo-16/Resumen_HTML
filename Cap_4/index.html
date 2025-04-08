@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Canvas en HTML5</title>
-        <style>
-            canvas {
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas en HTML5</title>
+    <style>
+        canvas {
             margin: 10px;
             border: 1px solid black;
-            }
-        </style>
-    </head>
-<body>
+        }
+    </style>
+</head>
 
+<body>
     <canvas width="300" height="225"></canvas>
-    <canvas width="300" height="225" style="border:1px dashed #000;"></canvas>
+    <canvas width="300" height="225" style="border: 1px dashed #000"></canvas>
     <canvas id="a" width="300" height="225"></canvas>
     <canvas id="b" width="300" height="225"></canvas>
     <canvas id="myCanvas" width="300" height="225"></canvas>
 
     <button onclick="draw_b()">Click to draw on this canvas</button>
-    <img src="./Resumen_HTML/Cap_4/imagenes/Captura de pantalla 2025-03-25 101504.png" alt="">
-    <img src="./Resumen_HTML/Cap_4/imagenes/Captura de pantalla 2025-03-25 101408.png" alt="">
+    <img src="./Resumen_HTML/Cap_4/imagenes/Captura de pantalla 2025-03-25 101504.png" alt="" />
+    <img src="./Resumen_HTML/Cap_4/imagenes/Captura de pantalla 2025-03-25 101408.png" alt="" />
     <script>
         // Función para dibujar un rectángulo en el canvas "b"
         function draw_b() {
@@ -34,9 +35,11 @@
         // Dibujar un círculo en el canvas "a"
         var a_canvas = document.getElementById("a");
         var context = a_canvas.getContext("2d");
-        
-        var x = 150, y = 100, radius = 50; // Coordenadas y radio del círculo
-        
+
+        var x = 150,
+            y = 100,
+            radius = 50; // Coordenadas y radio del círculo
+
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI * 2, false);
         context.closePath();
@@ -58,8 +61,14 @@
                 x = e.pageX;
                 y = e.pageY;
             } else {
-                x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-                y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                x =
+                    e.clientX +
+                    document.body.scrollLeft +
+                    document.documentElement.scrollLeft;
+                y =
+                    e.clientY +
+                    document.body.scrollTop +
+                    document.documentElement.scrollTop;
             }
             x -= canvas.offsetLeft;
             y -= canvas.offsetTop;
@@ -68,7 +77,10 @@
 
         // Dibujar el tablero con líneas de cuadrícula
         var gDrawingContext = canvas.getContext("2d");
-        var kPixelWidth = 300, kPixelHeight = 225, kPieceWidth = 50, kPieceHeight = 50;
+        var kPixelWidth = 300,
+            kPixelHeight = 225,
+            kPieceWidth = 50,
+            kPieceHeight = 50;
 
         function drawBoard() {
             gDrawingContext.beginPath();
@@ -108,7 +120,7 @@
             gDrawingContext.clearRect(0, 0, kPixelWidth, kPixelHeight);
             drawBoard();
         }
-
     </script>
 </body>
+
 </html>
