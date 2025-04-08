@@ -120,21 +120,20 @@ width="320"
 height="240"
 controls
 >
-<source
-src="pr6.ogv"
-type='video/ogg;
-codecs= "theora, vorbis"'
->
-<source
-
-src="pr6.webm"
-type='video/webm;
-codecs="vp8, vorbis"' >
-
-<source
-src="pr6.mp4"
-type='video/mp4;
-codecs="avc1.42E01E, mp4a.40.2"'
->
+    <source
+        src="pr6.ogv"
+        type='video/ogg;
+        codecs= "theora, vorbis"'
+    >
+    <source
+        src="pr6.webm"
+        type='video/webm;
+        codecs="vp8, vorbis"'
+    >
+    <source
+        src="pr6.mp4"
+        type='video/mp4;
+        codecs="avc1.42E01E, mp4a.40.2"'
+    >
 </video>
 ```
