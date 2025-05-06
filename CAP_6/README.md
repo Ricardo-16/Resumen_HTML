@@ -211,7 +211,7 @@ Primero, debes llamar explícitamente a la función `init()`. Esta función veri
 
 ```javascript
 if (geo_position_js.init()) {
-    // La geolocalización está disponible
+
 }
 ```
 
@@ -231,7 +231,7 @@ Esta función:
 - Si se usa Gears, mostrará un diálogo pidiendo confianza para usarlo.
 - En navegadores modernos (como Firefox 3.5), se mostrará una barra de información solicitando permiso para compartir la ubicación.
 
----
+
 
 ### 3. **Manejar los resultados**
 
@@ -243,7 +243,6 @@ function geo_success(p) {
     alert("Te encontré en latitud " + p.coords.latitude +
           ", longitud " + p.coords.longitude);
 }
-```
 
 La variable `p` contiene toda la información de la posición, incluyendo:
 - `latitude`
@@ -251,7 +250,7 @@ La variable `p` contiene toda la información de la posición, incluyendo:
 - `accuracy`
 - Y otros campos opcionales según el dispositivo.
 
-####  Función de error (`geo_error`)
+ Función de error (`geo_error`)
 Se ejecuta si:
 - El usuario no da permiso,
 - O si por algún motivo falla la API de geolocalización.
