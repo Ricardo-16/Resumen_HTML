@@ -71,4 +71,3 @@ function resumeGame() {
 ### **Eventos de almacenamiento**:
 
 El evento `storage` se dispara cada vez que se realiza un cambio en el almacenamiento local, lo que permite mantener el seguimiento de los cambios en los datos.
-
