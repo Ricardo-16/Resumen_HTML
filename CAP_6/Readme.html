@@ -1,155 +1,176 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Estas aqu&iacute; &lpar;Y asi esta todo el mundo&rpar;</title>
-            <style>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Estas aqu&iacute; &lpar;Y asi esta todo el mundo&rpar;</title>
+    <style>
+      .vscode-dark img[src$="\#gh-light-mode-only"],
+      .vscode-light img[src$="\#gh-dark-mode-only"],
+      .vscode-high-contrast:not(.vscode-high-contrast-light)
+        img[src$="\#gh-light-mode-only"],
+      .vscode-high-contrast-light img[src$="\#gh-dark-mode-only"] {
+        display: none;
+      }
+    </style>
 
-.vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only],
-.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
-.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
-	display: none;
-}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI",
+          system-ui, "Ubuntu", "Droid Sans", sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    </style>
+    <style>
+      .task-list-item {
+        list-style-type: none;
+      }
 
-</style>
-            
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        <style>
-.task-list-item {
-    list-style-type: none;
-}
+      .task-list-item-checkbox {
+        margin-left: -20px;
+        vertical-align: middle;
+        pointer-events: none;
+      }
+    </style>
+    <style>
+      :root {
+        --color-note: #0969da;
+        --color-tip: #1a7f37;
+        --color-warning: #9a6700;
+        --color-severe: #bc4c00;
+        --color-caution: #d1242f;
+        --color-important: #8250df;
+      }
+    </style>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-note: #2f81f7;
+          --color-tip: #3fb950;
+          --color-warning: #d29922;
+          --color-severe: #db6d28;
+          --color-caution: #f85149;
+          --color-important: #a371f7;
+        }
+      }
+    </style>
+    <style>
+      .markdown-alert {
+        padding: 0.5rem 1rem;
+        margin-bottom: 16px;
+        color: inherit;
+        border-left: 0.25em solid #888;
+      }
 
-.task-list-item-checkbox {
-    margin-left: -20px;
-    vertical-align: middle;
-    pointer-events: none;
-}
-</style>
-<style>
-:root {
-  --color-note: #0969da;
-  --color-tip: #1a7f37;
-  --color-warning: #9a6700;
-  --color-severe: #bc4c00;
-  --color-caution: #d1242f;
-  --color-important: #8250df;
-}
+      .markdown-alert > :first-child {
+        margin-top: 0;
+      }
 
-</style>
-<style>
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-note: #2f81f7;
-    --color-tip: #3fb950;
-    --color-warning: #d29922;
-    --color-severe: #db6d28;
-    --color-caution: #f85149;
-    --color-important: #a371f7;
-  }
-}
+      .markdown-alert > :last-child {
+        margin-bottom: 0;
+      }
 
-</style>
-<style>
-.markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 16px;
-  color: inherit;
-  border-left: .25em solid #888;
-}
+      .markdown-alert .markdown-alert-title {
+        display: flex;
+        font-weight: 500;
+        align-items: center;
+        line-height: 1;
+      }
 
-.markdown-alert>:first-child {
-  margin-top: 0
-}
+      .markdown-alert .markdown-alert-title .octicon {
+        margin-right: 0.5rem;
+        display: inline-block;
+        overflow: visible !important;
+        vertical-align: text-bottom;
+        fill: currentColor;
+      }
 
-.markdown-alert>:last-child {
-  margin-bottom: 0
-}
+      .markdown-alert.markdown-alert-note {
+        border-left-color: var(--color-note);
+      }
 
-.markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1
-}
+      .markdown-alert.markdown-alert-note .markdown-alert-title {
+        color: var(--color-note);
+      }
 
-.markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-  display: inline-block;
-  overflow: visible !important;
-  vertical-align: text-bottom;
-  fill: currentColor;
-}
+      .markdown-alert.markdown-alert-important {
+        border-left-color: var(--color-important);
+      }
 
-.markdown-alert.markdown-alert-note {
-  border-left-color: var(--color-note);
-}
+      .markdown-alert.markdown-alert-important .markdown-alert-title {
+        color: var(--color-important);
+      }
 
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: var(--color-note);
-}
+      .markdown-alert.markdown-alert-warning {
+        border-left-color: var(--color-warning);
+      }
 
-.markdown-alert.markdown-alert-important {
-  border-left-color: var(--color-important);
-}
+      .markdown-alert.markdown-alert-warning .markdown-alert-title {
+        color: var(--color-warning);
+      }
 
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: var(--color-important);
-}
+      .markdown-alert.markdown-alert-tip {
+        border-left-color: var(--color-tip);
+      }
 
-.markdown-alert.markdown-alert-warning {
-  border-left-color: var(--color-warning);
-}
+      .markdown-alert.markdown-alert-tip .markdown-alert-title {
+        color: var(--color-tip);
+      }
 
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: var(--color-warning);
-}
+      .markdown-alert.markdown-alert-caution {
+        border-left-color: var(--color-caution);
+      }
 
-.markdown-alert.markdown-alert-tip {
-  border-left-color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-caution {
-  border-left-color: var(--color-caution);
-}
-
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: var(--color-caution);
-}
-
-</style>
-        
-        </head>
-        <body class="vscode-body vscode-light">
-            <h1 id="estas-aquí-y-asi-esta-todo-el-mundo">Estas aquí (Y asi esta todo el mundo)</h1>
-<h1 id="la-api-de-geolocalización">La api de Geolocalización</h1>
-<pre><code>La API de Geolocalización permite a las aplicaciones obtener la ubicación geográfica del dispositivo del usuario. Esto se logra a través de métodos como `getCurrentPosition` y `watchPosition`, que proporcionan coordenadas como latitud y longitud. Es útil para aplicaciones de mapas, seguimiento en tiempo real y servicios basados en ubicación. Es importante manejar los permisos de usuario y considerar la privacidad al implementar esta funcionalidad.
-</code></pre>
-<h1 id="soporte-de-geolocalización">Soporte de Geolocalización</h1>
-<pre><code>firefox, Safari, Chorme, Opera, Iphone, Android.
- 3.5+     5.0+    5.0+   10.6+   3.0+    2.0+
-</code></pre>
-<h1 id="muestrame-el-código">Muestrame el Código</h1>
-<p>El uso mas simple de la gelocalizacion es el siguiente.</p>
-<pre><code>    function get_location(){
+      .markdown-alert.markdown-alert-caution .markdown-alert-title {
+        color: var(--color-caution);
+      }
+    </style>
+  </head>
+  <body class="vscode-body vscode-light">
+    <h1 id="estas-aquí-y-asi-esta-todo-el-mundo">
+      Estas aquí (Y asi esta todo el mundo)
+    </h1>
+    <h1 id="la-api-de-geolocalización">La api de Geolocalización</h1>
+    <pre>
+      <code>
+        La API de Geolocalización permite a las aplicaciones obtener la ubicación geográfica del dispositivo del usuario. Esto se logra a través de métodos como `getCurrentPosition` y `watchPosition`, que proporcionan coordenadas como latitud y longitud. Es útil para aplicaciones de mapas, seguimiento en tiempo real y servicios basados en ubicación. Es importante manejar los permisos de usuario y considerar la privacidad al implementar esta funcionalidad.
+      </code>
+    </pre>
+    <h1 id="soporte-de-geolocalización">Soporte de Geolocalización</h1>
+    <pre>
+      <code>
+        firefox, Safari, Chorme, Opera, Iphone, Android.
+          3.5+     5.0+    5.0+   10.6+   3.0+    2.0+
+</code>
+</pre>
+    <h1 id="muestrame-el-código">Muestrame el Código</h1>
+    <p>El uso mas simple de la gelocalizacion es el siguiente.</p>
+    <pre>
+      <code>  
+        function get_location(){
     navigator.geolocation.getCurrentPosition(show_map);
 }
-</code></pre>
-<p>Esta función solicita la ubicación actual del dispositivo y muestra un mapa con la ubicación marc.</p>
-<p>Es probable que la aplicación web incluya al menos los dos primeros. Para detectar la compatibilidad con la API de geolocalización, puede usar Modernizr:</p>
-<pre><code>    function get_location() {
+        </code>
+    </pre>
+    <p>
+      Esta función solicita la ubicación actual del dispositivo y muestra un
+      mapa con la ubicación marc.
+    </p>
+    <p>
+      Es probable que la aplicación web incluya al menos los dos primeros. Para
+      detectar la compatibilidad con la API de geolocalización, puede usar
+      Modernizr:
+    </p>
+    <pre>
+      <code>    function get_location() {
 
     if (
     Modernizr.geolocation) {
@@ -158,87 +179,154 @@
     // no native support; maybe try Gears?
     }
 }
-</code></pre>
-<p>Al hacer el llamado de la funcion getCurrentPosition() de la API de geolocalización hará que el navegador muestre una &quot;barra de información&quot; en la parte superior de la ventana del navegador.</p>
-<p>El siguiente codigo muestra como se obtiene la ubicacion mediante la AAPI de Geolocalizacion.</p>
-<pre><code>    function get_location() {
+      </code>
+    </pre>
+    <p>
+      Al hacer el llamado de la funcion getCurrentPosition() de la API de
+      geolocalización hará que el navegador muestre una &quot;barra de
+      información&quot; en la parte superior de la ventana del navegador.
+    </p>
+    <p>
+      El siguiente codigo muestra como se obtiene la ubicacion mediante la AAPI
+      de Geolocalizacion.
+    </p>
+    <pre><code>    function get_location() {
         navigator.geolocation.getCurrentPosition(show_map);
     }
 </code></pre>
-<p>Este método devuelve inmediatamente, pero los datos de ubicación solo estarán disponibles dentro de la función de callback , como 'show_map en el ejemplo. Aquí puedes acceder a las coordenadas.</p>
-<pre><code>    function show_map(position) {
+    <p>
+      Este método devuelve inmediatamente, pero los datos de ubicación solo
+      estarán disponibles dentro de la función de callback , como 'show_map en
+      el ejemplo. Aquí puedes acceder a las coordenadas.
+    </p>
+    <pre>
+      <code>
+            function show_map(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
     // Mostrar mapa o realizar una acción interesante con los datos
-   }
-</code></pre>
-<h1 id="manejo-de-errores">Manejo de errores</h1>
-<p>La geolocalización no siempre funciona correctamente. Pueden surgir errores. Ya mencioné el tema del consentimiento del usuario : si tu aplicación web necesita</p>
-<p>Pero, ¿cómo se maneja eso en el código? A través del segundo argumento de la función :getCurrentPosition()</p>
-<pre><code>    navigator.geolocation.getCurrentPosition(
+    }
+</code>
+    </pre>
+    <h1 id="manejo-de-errores">Manejo de errores</h1>
+    <p>
+      La geolocalización no siempre funciona correctamente. Pueden surgir
+      errores. Ya mencioné el tema del consentimiento del usuario : si tu
+      aplicación web necesita
+    </p>
+    <p>
+      Pero, ¿cómo se maneja eso en el código? A través del segundo argumento de
+      la función :getCurrentPosition()
+    </p>
+    <pre><code>    navigator.geolocation.getCurrentPosition(
         show_map,     
         handle_error  
     );
-</code></pre>
-<p>Si algo falla, se llamará a tu función de error con un objeto 'PositionErrorPositionError, que contiene información sobre lo que salió mal.</p>
-<p>El objeto 'PositionErrorPositionError tiene una propiedad 'codecode que puede tener uno de los siguientes valores:
-PERMISSION_DENIED (1)
-Si el usuario hace clic en el botón &quot;No compartir&quot; o niega explícitamente el acceso a su ubicación.
-POSITION_UNAVAILABLE (2)
-Si la red está caída o no se puede contactar con los satélites de posicionamiento.
-TIMEOUT (3)
-Si la red funciona, pero tarda demasiado en calcular la posición del usuario.
-¿Cuánto es &quot;demasiado&quot;? En la siguiente sección te mostraré cómo definir este tiempo límite.
-UNKNOWN_ERROR (0)
-Si ocurre cualquier otro error desconocido.</p>
-<h1 id="opciones-exijo-opciones">¡OPCIONES! ¡EXIJO OPCIONES!</h1>
-<pre><code>La API de Geolocalización ofrece opciones adicionales que puedes usar al llamar a métodos como getCurrentPosition() o . Estas opciones te permiten controlar cómo se obtiene la ubicación del usuario.watchPosition()
-</code></pre>
-<ol>
-<li>enableHighAccuracy
-Esta propiedad hace exactamente lo que su nombre indica: habilita una ubicación de alta precisión si:</li>
-</ol>
-<p>El dispositivo lo soporta,
-Y el usuario da su consentimiento.
-En dispositivos como iPhones y Android, los permisos de baja y alta precisión están separados. Esto significa que llamar a con podría fallar, mientras que hacerlo con sí podría funcionargetCurrentPosition(){ enableHighAccuracy: true }{ enableHighAccuracy: false }</p>
-<ol start="2">
-<li>
-<p>timeout
-Es el tiempo máximo (en milisegundos ) que tu aplicación está dispuesta a esperar para obtener una posición.
-Este temporizador no empieza hasta que el usuario haya dado su permiso , así que no estás midiendo cuánto tarda el usuario en</p>
-</li>
-<li>
-<p>maximumAge
-Permite al dispositivo devolver una ubicación almacenada en caché , si aún es válida según el tiempo especificado (en miliseg)</p>
-</li>
-</ol>
-<p>Por ejemplo:</p>
-<p>Imagina que llamas a por primera vez, el usuario acepta, y obtienes una posición calculada exactamente a las 10:00 AM .
-Un minuto después, a las 10:01 AM , vuelves a llamar a con estagetCurrentPosition()getCurrentPosition()</p>
-<pre><code>navigator.geolocation.getCurrentPosition(
+</code>
+    </pre>
+    <p>
+      Si algo falla, se llamará a tu función de error con un objeto
+      'PositionErrorPositionError, que contiene información sobre lo que salió
+      mal.
+    </p>
+    <p>
+      El objeto 'PositionErrorPositionError tiene una propiedad 'codecode que
+      puede tener uno de los siguientes valores: PERMISSION_DENIED (1) Si el
+      usuario hace clic en el botón &quot;No compartir&quot; o niega
+      explícitamente el acceso a su ubicación. POSITION_UNAVAILABLE (2) Si la
+      red está caída o no se puede contactar con los satélites de
+      posicionamiento. TIMEOUT (3) Si la red funciona, pero tarda demasiado en
+      calcular la posición del usuario. ¿Cuánto es &quot;demasiado&quot;? En la
+      siguiente sección te mostraré cómo definir este tiempo límite.
+      UNKNOWN_ERROR (0) Si ocurre cualquier otro error desconocido.
+    </p>
+    <h1 id="opciones-exijo-opciones">¡OPCIONES! ¡EXIJO OPCIONES!</h1>
+    <pre>
+      <code>
+        La API de Geolocalización ofrece opciones adicionales que puedes usar al llamar a métodos como getCurrentPosition() o . Estas opciones te permiten controlar cómo se obtiene la ubicación del usuario.watchPosition()
+      </code>
+    </pre>
+    <ol>
+      <li>
+        enableHighAccuracy Esta propiedad hace exactamente lo que su nombre
+        indica: habilita una ubicación de alta precisión si:
+      </li>
+    </ol>
+    <p>
+      El dispositivo lo soporta, Y el usuario da su consentimiento. En
+      dispositivos como iPhones y Android, los permisos de baja y alta precisión
+      están separados. Esto significa que llamar a con podría fallar, mientras
+      que hacerlo con sí podría funcionargetCurrentPosition(){
+      enableHighAccuracy: true }{ enableHighAccuracy: false }
+    </p>
+    <ol start="2">
+      <li>
+        <p>
+          timeout Es el tiempo máximo (en milisegundos ) que tu aplicación está
+          dispuesta a esperar para obtener una posición. Este temporizador no
+          empieza hasta que el usuario haya dado su permiso , así que no estás
+          midiendo cuánto tarda el usuario en
+        </p>
+      </li>
+      <li>
+        <p>
+          maximumAge Permite al dispositivo devolver una ubicación almacenada en
+          caché , si aún es válida según el tiempo especificado (en miliseg)
+        </p>
+      </li>
+    </ol>
+    <p>Por ejemplo:</p>
+    <p>
+      Imagina que llamas a por primera vez, el usuario acepta, y obtienes una
+      posición calculada exactamente a las 10:00 AM . Un minuto después, a las
+      10:01 AM , vuelves a llamar a con
+      estagetCurrentPosition()getCurrentPosition()
+    </p>
+    <pre>
+      <code>navigator.geolocation.getCurrentPosition(
     show_map,
     handle_error,
     { maximumAge: 75000 }
 );
-</code></pre>
-<p>Esto le dice al dispositivo que aceptas una ubicación con hasta 75 segundos de antigüedad . Como solo han pasado 60 segundos desde la última vez, el dispositivo simplemente devuelve la misma información que ya tenía:</p>
-<p>Misma latitud y longitud,
-Misma precisión,
-Y la misma marca de tiempo (10:00 AM).
-¿Qué pasa si necesito la ubicación varias veces?
-Antes de pedir siempre una nueva ubicación, piensa qué tan precisa la necesitas y establece enableHighAccuracy correctamente. Si vas a pedirla más de una vez, piensa también cuánto tiempo puede tener la información y seguir siendo útil. Eso te ayudará a decidir el valor de .maximumAge</p>
-<p>Pero si necesitas seguir la ubicación del usuario continuamente, entonces no es lo que necesitas.getCurrentPosition()</p>
-<p>– Seguimiento continuowatchPosition()
-El método tiene la misma estructura que 'getCurrentwatchPosition()getCurrentPosition():</p>
-<p>Toma dos funciones de callback : una para éxito y otra opcional para errores.
-Puede tomar un objeto con las mismas propiedades (, , ).PositionOptionsenableHighAccuracytimeoutmaximumAge
-La diferencia es que tu función de éxito se llamará cada vez que cambie la ubicación del usuario . No necesitas preguntar manualmente; el dispositivo decide cuál es el intervalo óptimo de actualización, y te notifica cuando hay cambios.</p>
-<p>Puedes usar esto para:</p>
-<p>Actualizar un marcador en un mapa,
-Dar instrucciones paso a paso,
-O cualquier acción basada en movimiento.
-Ejemplo básico:</p>
-<pre><code>const watchId = navigator.geolocation.watchPosition(
+      </code>
+    </pre>
+    <p>
+      Esto le dice al dispositivo que aceptas una ubicación con hasta 75
+      segundos de antigüedad . Como solo han pasado 60 segundos desde la última
+      vez, el dispositivo simplemente devuelve la misma información que ya
+      tenía:
+    </p>
+    <p>
+      Misma latitud y longitud, Misma precisión, Y la misma marca de tiempo
+      (10:00 AM). ¿Qué pasa si necesito la ubicación varias veces? Antes de
+      pedir siempre una nueva ubicación, piensa qué tan precisa la necesitas y
+      establece enableHighAccuracy correctamente. Si vas a pedirla más de una
+      vez, piensa también cuánto tiempo puede tener la información y seguir
+      siendo útil. Eso te ayudará a decidir el valor de .maximumAge
+    </p>
+    <p>
+      Pero si necesitas seguir la ubicación del usuario continuamente, entonces
+      no es lo que necesitas.getCurrentPosition()
+    </p>
+    <p>
+      – Seguimiento continuowatchPosition() El método tiene la misma estructura
+      que 'getCurrentwatchPosition()getCurrentPosition():
+    </p>
+    <p>
+      Toma dos funciones de callback : una para éxito y otra opcional para
+      errores. Puede tomar un objeto con las mismas propiedades (, ,
+      ).PositionOptionsenableHighAccuracytimeoutmaximumAge La diferencia es que
+      tu función de éxito se llamará cada vez que cambie la ubicación del
+      usuario . No necesitas preguntar manualmente; el dispositivo decide cuál
+      es el intervalo óptimo de actualización, y te notifica cuando hay cambios.
+    </p>
+    <p>Puedes usar esto para:</p>
+    <p>
+      Actualizar un marcador en un mapa, Dar instrucciones paso a paso, O
+      cualquier acción basada en movimiento. Ejemplo básico:
+    </p>
+    <pre>
+      <code>const watchId = navigator.geolocation.watchPosition(
     show_map,
     handle_error,
     {
@@ -247,43 +335,84 @@ Ejemplo básico:</p>
         maximumAge: 0
     }
 );
-</code></pre>
-<p>Detener el seguimiento: clearWatch()
-El método devuelve un número identificador (). GuárdalowatchPosition()watchId
-Si en algún momento quieres dejar de recibir actualizaciones de ubicación, llama a:</p>
-<pre><code>vigator.geolocation.clearWatch(watchId);
-</code></pre>
-<p>Este sistema funciona de forma muy parecida a las funciones y de JavaScript.setInterval()clearInterval()</p>
-<h1 id="qué-pasa-con-ie">¿QUÉ PASA CON IE?</h1>
-<h3 id="compatibilidad-con-navegadores-antiguos">Compatibilidad con navegadores antiguos</h3>
-<p>Internet Explorer <strong>no soporta</strong> la API de geolocalización estándar del W3C que acabo de describir. ¡Pero no te desesperes!</p>
-<h4 id="gears-una-alternativa-de-google">Gears: una alternativa de Google</h4>
-<p><a href="https://developers.google.com/gears/">Gears</a> es un <strong>complemento de navegador de código abierto desarrollado por Google</strong>, compatible con:</p>
-<ul>
-<li>Windows</li>
-<li>Mac</li>
-<li>Linux</li>
-<li>Windows Mobile</li>
-<li>Android</li>
-</ul>
-<p>Este plugin ofrece características avanzadas para navegadores más antiguos, entre ellas una <strong>API de geolocalización</strong>. Aunque no es exactamente igual a la API estándar del W3C, cumple el mismo propósito.</p>
-<h3 id="plataformas-móviles-antiguas-también-tenían-sus-propias-apis">Plataformas móviles antiguas también tenían sus propias APIs</h3>
-<p>Mientras estamos en el tema de plataformas heredadas, vale la pena mencionar que muchas de las plataformas móviles antiguas ofrecían su propia API de geolocalización específica del dispositivo.</p>
-<p>Algunas de estas plataformas incluyen:</p>
-<ul>
-<li>BlackBerry</li>
-<li>Nokia</li>
-<li>Palm</li>
-<li>OMTP BONDI</li>
-</ul>
-<p>Por supuesto, <strong>todas funcionan de forma diferente entre sí</strong>. La API de Gears funciona distinto a la del W3C, y a su vez distinto a las APIs nativas de cada fabricante.</p>
-<h1 id="geojs-al-rescate">GEO.JS Al rescate</h1>
-<p>geo.js es una biblioteca JavaScript de código abierto con licencia MIT que simplifica las diferencias entre:
-La API de geolocalización estándar del W3C,
-La API de geolocalización de Gears,
-Y las APIs específicas de varias plataformas móviles.
-Gracias a 'geo.js, puedes escribir código compatible con múltiples navegadores y dispositivos sin preocuparte por las diferencias técnicas subyacentes.</p>
-<pre><code>    &lt;!DOCTYPE html&gt;
+      </code>
+    </pre>
+    <p>
+      Detener el seguimiento: clearWatch() El método devuelve un número
+      identificador (). GuárdalowatchPosition()watchId Si en algún momento
+      quieres dejar de recibir actualizaciones de ubicación, llama a:
+    </p>
+    <pre>
+      <code>
+        vigator.geolocation.clearWatch(watchId);
+      </code>
+    </pre>
+    <p>
+      Este sistema funciona de forma muy parecida a las funciones y de
+      JavaScript.setInterval()clearInterval()
+    </p>
+    <h1 id="qué-pasa-con-ie">¿QUÉ PASA CON IE?</h1>
+    <h3 id="compatibilidad-con-navegadores-antiguos">
+      Compatibilidad con navegadores antiguos
+    </h3>
+    <p>
+      Internet Explorer <strong>no soporta</strong> la API de geolocalización
+      estándar del W3C que acabo de describir. ¡Pero no te desesperes!
+    </p>
+    <h4 id="gears-una-alternativa-de-google">
+      Gears: una alternativa de Google
+    </h4>
+    <p>
+      <a href="https://developers.google.com/gears/">Gears</a> es un
+      <strong
+        >complemento de navegador de código abierto desarrollado por
+        Google</strong
+      >, compatible con:
+    </p>
+    <ul>
+      <li>Windows</li>
+      <li>Mac</li>
+      <li>Linux</li>
+      <li>Windows Mobile</li>
+      <li>Android</li>
+    </ul>
+    <p>
+      Este plugin ofrece características avanzadas para navegadores más
+      antiguos, entre ellas una <strong>API de geolocalización</strong>. Aunque
+      no es exactamente igual a la API estándar del W3C, cumple el mismo
+      propósito.
+    </p>
+    <h3 id="plataformas-móviles-antiguas-también-tenían-sus-propias-apis">
+      Plataformas móviles antiguas también tenían sus propias APIs
+    </h3>
+    <p>
+      Mientras estamos en el tema de plataformas heredadas, vale la pena
+      mencionar que muchas de las plataformas móviles antiguas ofrecían su
+      propia API de geolocalización específica del dispositivo.
+    </p>
+    <p>Algunas de estas plataformas incluyen:</p>
+    <ul>
+      <li>BlackBerry</li>
+      <li>Nokia</li>
+      <li>Palm</li>
+      <li>OMTP BONDI</li>
+    </ul>
+    <p>
+      Por supuesto,
+      <strong>todas funcionan de forma diferente entre sí</strong>. La API de
+      Gears funciona distinto a la del W3C, y a su vez distinto a las APIs
+      nativas de cada fabricante.
+    </p>
+    <h1 id="geojs-al-rescate">GEO.JS Al rescate</h1>
+    <p>
+      geo.js es una biblioteca JavaScript de código abierto con licencia MIT que
+      simplifica las diferencias entre: La API de geolocalización estándar del
+      W3C, La API de geolocalización de Gears, Y las APIs específicas de varias
+      plataformas móviles. Gracias a 'geo.js, puedes escribir código compatible
+      con múltiples navegadores y dispositivos sin preocuparte por las
+      diferencias técnicas subyacentes.
+    </p>
+    <pre><code>    &lt;!DOCTYPE html&gt;
     &lt;html&gt;
     &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -301,70 +430,120 @@ Gracias a 'geo.js, puedes escribir código compatible con múltiples navegadores
     &lt;/html&gt;
 
 </code></pre>
-<p>¡Claro! Aquí tienes la <strong>traducción al español</strong> del texto que proporcionaste, ideal para incluir en un <code>README.md</code> o documentación técnica sobre el uso de <code>geo.js</code>.</p>
-<hr>
-<h2 id="cómo-usar-geojs-paso-a-paso">Cómo usar <code>geo.js</code>: Paso a paso</h2>
-<h3 id="1-inicializar-la-biblioteca">1. <strong>Inicializar la biblioteca</strong></h3>
-<p>Primero, debes llamar explícitamente a la función <code>init()</code>. Esta función verifica si hay disponible alguna API de geolocalización compatible.</p>
-<pre><code class="language-javascript"><span class="hljs-keyword">if</span> (geo_position_js.<span class="hljs-title function_">init</span>()) {
+    <p>
+      ¡Claro! Aquí tienes la <strong>traducción al español</strong> del texto
+      que proporcionaste, ideal para incluir en un <code>README.md</code> o
+      documentación técnica sobre el uso de <code>geo.js</code>.
+    </p>
+    <hr />
+    <h2 id="cómo-usar-geojs-paso-a-paso">
+      Cómo usar <code>geo.js</code>: Paso a paso
+    </h2>
+    <h3 id="1-inicializar-la-biblioteca">
+      1. <strong>Inicializar la biblioteca</strong>
+    </h3>
+    <p>
+      Primero, debes llamar explícitamente a la función <code>init()</code>.
+      Esta función verifica si hay disponible alguna API de geolocalización
+      compatible.
+    </p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">if</span> (geo_position_js.<span class="hljs-title function_">init</span>()) {
     <span class="hljs-comment">// La geolocalización está disponible</span>
 }
 </code></pre>
-<p><strong>Nota:</strong> Llamar a <code>init()</code> <strong>no obtiene tu ubicación</strong>, solo comprueba si es posible obtenerla.</p>
-<hr>
-<h3 id="2-obtener-la-ubicación-actual">2. <strong>Obtener la ubicación actual</strong></h3>
-<p>Para obtener realmente la ubicación del usuario, llama a la función <code>getCurrentPosition()</code>:</p>
-<pre><code class="language-javascript">geo_position_js.<span class="hljs-title function_">getCurrentPosition</span>(geo_success, geo_error);
+    <p>
+      <strong>Nota:</strong> Llamar a <code>init()</code>
+      <strong>no obtiene tu ubicación</strong>, solo comprueba si es posible
+      obtenerla.
+    </p>
+    <hr />
+    <h3 id="2-obtener-la-ubicación-actual">
+      2. <strong>Obtener la ubicación actual</strong>
+    </h3>
+    <p>
+      Para obtener realmente la ubicación del usuario, llama a la función
+      <code>getCurrentPosition()</code>:
+    </p>
+    <pre><code class="language-javascript">geo_position_js.<span class="hljs-title function_">getCurrentPosition</span>(geo_success, geo_error);
 </code></pre>
-<p>Esta función:</p>
-<ul>
-<li>Pide permiso al usuario para acceder a su ubicación.</li>
-<li>Si se usa Gears, mostrará un diálogo pidiendo confianza para usarlo.</li>
-<li>En navegadores modernos (como Firefox 3.5), se mostrará una barra de información solicitando permiso para compartir la ubicación.</li>
-</ul>
-<hr>
-<h3 id="3-manejar-los-resultados">3. <strong>Manejar los resultados</strong></h3>
-<h4 id="función-de-éxito-geo_success">Función de éxito (<code>geo_success</code>)</h4>
-<p>Se ejecuta si el usuario acepta y el sistema logra encontrar la ubicación.</p>
-<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">geo_success</span>(<span class="hljs-params">p</span>) {
+    <p>Esta función:</p>
+    <ul>
+      <li>Pide permiso al usuario para acceder a su ubicación.</li>
+      <li>
+        Si se usa Gears, mostrará un diálogo pidiendo confianza para usarlo.
+      </li>
+      <li>
+        En navegadores modernos (como Firefox 3.5), se mostrará una barra de
+        información solicitando permiso para compartir la ubicación.
+      </li>
+    </ul>
+    <hr />
+    <h3 id="3-manejar-los-resultados">
+      3. <strong>Manejar los resultados</strong>
+    </h3>
+    <h4 id="función-de-éxito-geo_success">
+      Función de éxito (<code>geo_success</code>)
+    </h4>
+    <p>
+      Se ejecuta si el usuario acepta y el sistema logra encontrar la ubicación.
+    </p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">geo_success</span>(<span class="hljs-params">p</span>) {
     <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;Te encontré en latitud &quot;</span> + p.<span class="hljs-property">coords</span>.<span class="hljs-property">latitude</span> +
           <span class="hljs-string">&quot;, longitud &quot;</span> + p.<span class="hljs-property">coords</span>.<span class="hljs-property">longitude</span>);
 }
 </code></pre>
-<p>La variable <code>p</code> contiene toda la información de la posición, incluyendo:</p>
-<ul>
-<li><code>latitude</code></li>
-<li><code>longitude</code></li>
-<li><code>accuracy</code></li>
-<li>Y otros campos opcionales según el dispositivo.</li>
-</ul>
-<h4 id="función-de-error-geo_error">Función de error (<code>geo_error</code>)</h4>
-<p>Se ejecuta si:</p>
-<ul>
-<li>El usuario no da permiso,</li>
-<li>O si por algún motivo falla la API de geolocalización.</li>
-</ul>
-<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">geo_error</span>(<span class="hljs-params"></span>) {
+    <p>
+      La variable <code>p</code> contiene toda la información de la posición,
+      incluyendo:
+    </p>
+    <ul>
+      <li><code>latitude</code></li>
+      <li><code>longitude</code></li>
+      <li><code>accuracy</code></li>
+      <li>Y otros campos opcionales según el dispositivo.</li>
+    </ul>
+    <h4 id="función-de-error-geo_error">
+      Función de error (<code>geo_error</code>)
+    </h4>
+    <p>Se ejecuta si:</p>
+    <ul>
+      <li>El usuario no da permiso,</li>
+      <li>O si por algún motivo falla la API de geolocalización.</li>
+    </ul>
+    <pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">geo_error</span>(<span class="hljs-params"></span>) {
     <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;¡No pude encontrarte!&quot;</span>);
 }
 </code></pre>
-<p>Esta función <strong>no recibe argumentos</strong>, solo indica que algo salió mal.</p>
-<hr>
-<h3 id="limitaciones-actuales-de-geojs">Limitaciones actuales de <code>geo.js</code></h3>
-<blockquote>
-<p><strong>Importante:</strong> <code>geo.js</code> <strong>no soporta actualmente</strong> la función <code>watchPosition()</code>.<br>
-Si necesitas obtener la ubicación del usuario continuamente, tendrás que llamar manualmente a <code>getCurrentPosition()</code> en intervalos regulares con <code>setInterval()</code>.</p>
-</blockquote>
-<p><strong>Ejemplo:</strong></p>
-<pre><code class="language-javascript"><span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+    <p>
+      Esta función <strong>no recibe argumentos</strong>, solo indica que algo
+      salió mal.
+    </p>
+    <hr />
+    <h3 id="limitaciones-actuales-de-geojs">
+      Limitaciones actuales de <code>geo.js</code>
+    </h3>
+    <blockquote>
+      <p>
+        <strong>Importante:</strong> <code>geo.js</code>
+        <strong>no soporta actualmente</strong> la función
+        <code>watchPosition()</code>.<br />
+        Si necesitas obtener la ubicación del usuario continuamente, tendrás que
+        llamar manualmente a <code>getCurrentPosition()</code> en intervalos
+        regulares con <code>setInterval()</code>.
+      </p>
+    </blockquote>
+    <p><strong>Ejemplo:</strong></p>
+    <pre><code class="language-javascript"><span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
     geo_position_js.<span class="hljs-title function_">getCurrentPosition</span>(geo_success, geo_error);
 }, <span class="hljs-number">10000</span>);
 </code></pre>
-<hr>
-<h3 id="resumen-final">Resumen final</h3>
-<p>Con <code>geo.js</code>, puedes usar una única interfaz para detectar la ubicación del usuario, sin importar qué tecnología esté usando el navegador o dispositivo. Es ideal para aplicaciones compatibles con navegadores antiguos o plataformas móviles heterogéneas.</p>
-
-            
-            
-        </body>
-        </html>
+    <hr />
+    <h3 id="resumen-final">Resumen final</h3>
+    <p>
+      Con <code>geo.js</code>, puedes usar una única interfaz para detectar la
+      ubicación del usuario, sin importar qué tecnología esté usando el
+      navegador o dispositivo. Es ideal para aplicaciones compatibles con
+      navegadores antiguos o plataformas móviles heterogéneas.
+    </p>
+  </body>
+</html>
