@@ -71,3 +71,62 @@ function resumeGame() {
 ### **Eventos de almacenamiento**:
 
 El evento `storage` se dispara cada vez que se realiza un cambio en el almacenamiento local, lo que permite mantener el seguimiento de los cambios en los datos.
+
+Claro, aquí tienes la continuación y finalización del resumen que ya comenzaste:
+
+---
+
+### **Eventos de almacenamiento**
+
+El evento `storage` se dispara cuando una pestaña o ventana modifica el `localStorage`, lo que permite a otras pestañas del mismo origen reaccionar a estos cambios. Es útil para mantener sincronizadas múltiples instancias de una aplicación.
+
+Ejemplo de uso:
+
+```javascript
+window.addEventListener("storage", function(event) {
+    console.log("La clave modificada fue: " + event.key);
+    console.log("Valor anterior: " + event.oldValue);
+    console.log("Nuevo valor: " + event.newValue);
+});
+```
+
+---
+
+### **Web SQL Database** (Obsoleto)
+
+Web SQL Database fue una especificación que permitía a los desarrolladores ejecutar consultas SQL desde JavaScript en una base de datos SQLite incrustada en el navegador. Aunque fue adoptada inicialmente por algunos navegadores (como Chrome y Safari), **el W3C decidió descontinuarla** por depender exclusivamente de SQLite, lo que limitaba su interoperabilidad.
+
+#### Características:
+
+* Uso de SQL para manipular datos.
+* Asincronía mediante callbacks.
+* Poco soporte actual, especialmente en Firefox y Edge.
+
+---
+
+### **IndexedDB: El futuro del almacenamiento local**
+
+**IndexedDB** es la alternativa moderna y recomendada para almacenamiento estructurado y de gran volumen en el navegador. A diferencia de `localStorage`, permite almacenar objetos complejos y manejar transacciones.
+
+#### Características:
+
+* **Soporta grandes cantidades de datos.**
+* Permite **almacenar objetos completos**, no solo cadenas de texto.
+* Usa **eventos y transacciones asincrónicas**.
+* **API más compleja**, pero más poderosa y escalable.
+* Soportada ampliamente por los navegadores modernos.
+
+---
+
+### 🔚 **Conclusión**
+
+El almacenamiento local ha evolucionado desde soluciones específicas de navegador (como `userData` en IE) hasta llegar a estándares robustos como **HTML5 Storage**, **Web SQL Database** (ya en desuso) e **IndexedDB**.
+
+* `localStorage` es ideal para necesidades simples, como guardar configuraciones de usuario o estados temporales.
+* Para aplicaciones web avanzadas que requieren persistencia de datos complejos o grandes volúmenes, **IndexedDB** es la solución más sólida y moderna.
+* Entender estas herramientas permite desarrollar aplicaciones web más ricas, eficientes y funcionales en el cliente.
+
+---
+
+¿Quieres que este resumen lo convierta en una presentación, infografía o en formato PDF para entregarlo o estudiarlo mejor?
+ 
