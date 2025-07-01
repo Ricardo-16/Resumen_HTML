@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Halma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="./Halma.css">
+    <script src="halma.js" defer></script> <!-- Se carga el JS después del DOM -->
+</head>
+<body>
+    <h1>Juego de Halma</h1>
+
+    <canvas id="halma_canvas" width="451" height="451"></canvas>
+
+    <p id="moves">
+        Movimientos:
+        <span id="movecount">0</span>
+    </p>
+
+    <script>
+        window.onload = function () {
+            initGame(
+                document.getElementById('halma_canvas'),
+                document.getElementById('movecount')
+            );
+
+            // ---- Función para verificar soporte de localStorage ----
+            function supportsLocalStorage() {
+                try {
+                    return 'localStorage' in window && window['localStorage'] !== null;
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            // ---- Guardar estado del juego ----
+            window.saveGameState = function () {
+                if (!supportsLocalStorage()) return false;
+                localStorage["halma.game.in.progress"] = gGameInProgress;
+                for (let i = 0; i < gNumPieces; i++) {
+                    localStorage[`halma.piece.${i}.row`] = gPieces[i].row;
+                    localStorage[`halma.piece.${i}.column`] = gPieces[i].column;
+                }
+                localStorage["halma.selectedpiece"] = gSelectedPieceIndex;
+                localStorage["halma.selectedpiecehasmoved"] = gSelectedPieceHasMoved;
+                localStorage["halma.movecount"] = gMoveCount;
+                return true;
+            };
+
+            // ---- Reanudar estado del juego ----
+            window.resumeGame = function () {
+                if (!supportsLocalStorage()) return false;
+                gGameInProgress = (localStorage["halma.game.in.progress"] === "true");
+                if (!gGameInProgress) return false;
+
+                gPieces = new Array(kNumPieces);
+                for (let i = 0; i < kNumPieces; i++) {
+                    const row = parseInt(localStorage[`halma.piece.${i}.row`]);
+                    const column = parseInt(localStorage[`halma.piece.${i}.column`]);
+                    gPieces[i] = new Cell(row, column);
+                }
+
+                gNumPieces = kNumPieces;
+                gSelectedPieceIndex = parseInt(localStorage["halma.selectedpiece"]);
+                gSelectedPieceHasMoved = localStorage["halma.selectedpiecehasmoved"] === "true";
+                gMoveCount = parseInt(localStorage["halma.movecount"]);
+                drawBoard();
+                return true;
+            };
+        };
+    </script>
+</body>
+</html>
